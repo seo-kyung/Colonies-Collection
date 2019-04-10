@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Serif');
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400i');
+
+
+html, body {
+	font-family: 'PT Serif', serif;
+	font-size: 36px;
+	letter-spacing: 0.005rem;
+	/*texture background*/
+/*	background-image: url(image/green_texture_002.png);
+	background-size: 100%;*/
+
+/* plain green with grid*/
+	background-color: #828c74;
+    background-image: linear-gradient(to right, white 0.25px, transparent 0.25px), linear-gradient(to bottom, white 0.3px, transparent 0.5px);
+	background-image: url("image/grid.svg");	
+	background-size:19%;
+	margin:0;
+	padding:0;
+	overflow: hidden;
+}
+
+::-webkit-scrollbar { display: none; }
+
+a, a:link{
+	color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+	color: #FFF;
+	transition: 0.2s;
+}
+
+i{
+	padding: 1.5em;
+}
+
+/*topological map of veenhuizen*/
+/*territory border*/
+	.st0 {
+		opacity:0.4;
+		fill:none;
+		stroke:#FFFFFF;
+		stroke-width:2;
+		stroke-miterlimit:10;
+	}
+
+/*village area*/
+	.st1 {
+		fill:#F1F2F2;
+		opacity: 0.1;
+	}
+
+
+/*water*/
+	.st2 {
+	
+		opacity:0.31;
+		fill:#87D6F8;
+	}
+
+	.st3 {opacity:0.31;
+		fill:#87D6F8;
+	}
+
+/*road*/
+	.st4 {
+		opacity:0.4;
+	}
+	.st5 {
+
+		fill:#FFFFFF;
+	}
+
+/*green*/
+	.st6 {
+		fill:#F6F5F5;
+		opacity: 0.1;
+	}
+
+
+	.st7:hover, .st8:hover, .st9:hover, .st10:hover, .st11:hover  {
+		cursor: pointer;
+		fill: white;
+		transition: 0.8s;
+	}
+/*svg map*/
+
+.geomap {
+	top:0;
+	width: 100%;
+	height: 1800px;
+	cursor: grab;
+	transform: translate(0px,-350px);
+	-ms-transform: translate(0px,-350px); /* IE 9 */
+	-webkit-transform: translate(0px,-350px); /* Safari and Chrome */
+	-o-transform: translate(0px,-350px); /* Opera */
+	-moz-transform: translate(0px,-350px); /* Firefox */
+	overflow: hidden;
+}
+
+
+
+
+/*map name*/
+.mapname {
+	position: fixed;
+	font-size: 1.3em;
+	top: 10px;
+	left: 20px;
+
+}
+
+.baseup {
+	position : relative;
+	top : -.19em;  
+
+}
+
+.info{
+	font-size: 1.3vw;
+	position: fixed;
+	text-align: center;
+	padding-top: 0.2em;
+	top:20px;
+	right: 20px;
+	background: rgba(204, 204, 204, 0.87);
+	border-radius: 50%;
+	width: 2em;
+	height: 2em;
+	cursor: pointer;
+}
+
+.info:hover{
+	color: #FFF;
+ 	transition: 0.2s;
+}
+
+
+
+/*infopage*/
+.overlay{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background: rgba(240, 240, 240, 0.93); /*dim the background*/
+
+}
+
+.close {
+	position: fixed;
+	top: 1.1vw;
+	right: 2.5vw;
+	font-size: 1.3vw;
+	opacity: 1;
+	z-index:100;
+}
+
+.close:hover {
+	cursor: pointer;
+}
+
+.wrapper {
+	position: absolute;
+	font-size: 1.6vw;
+	display: grid;
+	display: -ms-grid;
+	width: 100%;
+	height: 100%;
+	grid-template-columns: 1.2fr 1fr 3.2fr 0.8fr;
+	
+	grid-gap: 2em;
+	grid-row-gap: 1.5em;
+	padding: 2vw;
+	padding-left: 3vw;
+	padding-top: 2vw;
+	overflow-y: scroll;
+	scrollbar-width: none;	
+}
+
+.name_website {
+	position: fixed
+}
+.intro {
+	grid-column-start: 2;
+}
+.contact {
+	grid-column-start: 2;
+	grid-column-end: 3;
+		grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.contact_info {
+	grid-column-start: 3;
+	grid-column-end:4;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+
+
+
+
+/*projects description*/
+
+.wrapper_description {
+	position: absolute;
+	font-size: 1.6vw;
+	display: grid;
+	display: -ms-grid;
+	width: 100%;
+	height: 100%;
+	grid-template-columns: 0.8fr 1.4fr 3.2fr 0.8fr;
+	grid-template-rows: 1em 1em 1em 1em 4em;
+	grid-gap: 2em;
+	grid-row-gap: 1em;
+	padding: 2vw;
+	padding-left: 3vw;
+	padding-top: 2vw;
+	overflow-y: scroll;
+	scrollbar-width: none;	
+} 
+
+.designer.index {
+	grid-column-start: 1;
+	grid-column-end:2;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.designer_data{
+	grid-column-start:2;
+	grid-column-end: 3;
+}
+
+.year.index {
+	grid-column-start:1;
+	grid-column-end:2;
+}
+.media.index {
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+.collaboration.index {
+	grid-column-start:1;
+	grid-column-end:2;
+}
+.description {
+	grid-column-start:3;
+	grid-column-end: 4;
+	grid-row-start:1;
+	grid-row-end:2;
+}
+
+.index{
+	font-style: italic;
+}
+
+.project.image{
+	grid-column-start:1;
+	grid-column-end:3;
+	
+}
+
+img {
+	width: 30%;
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    margin-right: 1em;
+}
+
+
+img:hover {
+	cursor:pointer;
+	-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
+}
+
+
+
+
+
+.timeline {
+	
+	font-size: 0.65vw;
+	position:fixed;
+	bottom:0;
+	right:0;
+	background: rgba(204, 204, 204, 0.87);
+	padding: 1em;
+	margin: 1.5em;
+	border-radius:1.4em;	
+	text-align: center;
+
+}
+
+.colony,
+.prison,
+.open {
+
+	/*padding-top: 0.5em;*/
+ 	display: inline-block;
+ 	position: relative;
+
+	
+  /*margin-bottom: 1em;*/
+  
+
+}
+
+.colony_button,
+.prison_button,
+.open_button {
+	font-size: 0.7vw;
+	position: relative;
+	display: inline-block;
+  align-items: center;
+padding-top: 0.8em;
+top : -.55em;  
+ 
+/*  padding: 0.3em 2em 0 4em;*/
+  margin: 0;
+  color: #000000;
+}
+
+.colony_button:hover,
+.prison_button:hover,
+.open_button:hover {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+
+
+.colony_button.clicked {
+  color: #b8aa85;
+}
+
+.prison_button.clicked{
+	color: #3268bf;
+}
+
+.open_button.clicked{
+	color: #e4cb3e;
+}
+
+.colony_button:active,
+.prison_button:active,
+.open_button:active {
+	transform: translateY(0.3em);
+	opacity: 0.4;
+
+
+}
+
+.colony_element,
+.open_element,
+.prison_element {
+  transition: 0.4s;
+}
+
+.colony_element.active {
+  fill: #b8aa85;
+}
+
+.prison_element.active {
+  fill: #3268bf;
+}
+
+.open_element.active {
+  fill: #e4cb3e;
+}
+
+.colony_element:hover,
+.open_element:hover,
+.prison_element:hover {
+  fill: white;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/*Project pages*/
+
+
+
+
+
+
+/*bootstrap tooltip*/
+
+ .tooltip-inner{
+ 
+font-family: 'PT Serif', serif;
+font-size: 0.85vw;
+max-width:50em;
+padding:0.8em;
+color:#000;
+text-align:center;
+background: rgba(204, 204, 204, 0.87);
+-webkit-border-radius:0.5em;
+-moz-border-radius:0.5em;
+border-radius:0.5em;
+
+}
+
+.tooltip.bs-tooltip-right .arrow:before {
+    border-top-color: rgba(204, 204, 204, 0.87);
+}
+.tooltip.bs-tooltip-left .arrow:before {
+    border-top-color: rgba(204, 204, 204, 0.87);
+}
+.tooltip.bs-tooltip-bottom .arrow:before {
+    border-top-color: rgba(204, 204, 204, 0.87);
+}
+.tooltip.bs-tooltip-top .arrow:before {
+    border-top-color: rgba(204, 204, 204, 0.87);
+
+}
+
+
+
